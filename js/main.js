@@ -11,7 +11,7 @@ var mainState = {
         game.load.image('background', 'imgs/background.png');
         
         // load the bird sprite
-        game.load.image('bird', 'imgs/baobao.png'); 
+        game.load.image('bird', 'imgs/wangzong.jpg'); 
         
         // load the pipe sprite
         game.load.image('pipe', 'imgs/pipe.png');
@@ -42,7 +42,12 @@ var mainState = {
         
         // Call the 'jump' function when the spacekey is hit
         var spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-        spaceKey.onDown.add(this.jump, this);   
+        spaceKey.onDown.add(this.jump, this); 
+        
+        // mobile tap input
+        game.input.onTap.add(function(e){
+            this.jump();
+        }); 
         
         // create pipe group
         this.pipes = game.add.group();  
@@ -50,7 +55,7 @@ var mainState = {
         this.pipes.createMultiple(20, 'pipe'); // Create 20 pipes  
         
         // call the addRowOfPipes() function every 1.5 seconds
-        this.timer = game.time.events.loop(1500, this.addRowOfPipes, this);  
+        this.timer = game.time.events.loop(1600, this.addRowOfPipes, this);  
         
         // score
         this.score = 0;  
@@ -142,7 +147,7 @@ var mainState = {
         
         // dead sound
         this.deadSound.play();
-        this.deadText = game.add.text(100, 100, "哎呀宝宝好笨啊", { font: "30px Arial", fill: "#ffffff" });
+        this.deadText = game.add.text(100, 100, "卧槽，悲剧啊", { font: "30px Arial", fill: "#ffffff" });
         
         // Go through all the pipes, and stop their movement
         this.pipes.forEachAlive(function(p){
