@@ -5,13 +5,13 @@ var game = new Phaser.Game(400, 490, Phaser.AUTO, 'gameDiv');
 var mainState = {
     
     // This function will be executed at the beginning     
-    // That's where we load the game's assets  
+    // load the game's assets  
     preload: function() { 
         // background picture
         game.load.image('background', 'imgs/background.png');
         
         // load the bird sprite
-        game.load.image('bird', 'imgs/wangzong.jpg'); 
+        game.load.image('bird', 'imgs/bird.png'); 
         
         // load the pipe sprite
         game.load.image('pipe', 'imgs/pipe.png');
@@ -21,8 +21,7 @@ var mainState = {
         game.load.audio('dead', 'songs/player_dead.wav');
     },
     
-    // This function is called after the preload function     
-    // Here we set up the game, display sprites, etc.  
+    // This function is called after the preload function      
     create: function() { 
         // Set the physics system
         game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -67,7 +66,7 @@ var mainState = {
     },
     
     // This function is called 60 times per second    
-    // It contains the game's logic   
+    // game logic   
     update: function() {
         // If the bird is out of the world (too high or too low), call the 'restartGame' function
         if(this.bird.inWorld == false)
@@ -147,7 +146,7 @@ var mainState = {
         
         // dead sound
         this.deadSound.play();
-        this.deadText = game.add.text(100, 100, "卧槽，悲剧啊", { font: "30px Arial", fill: "#ffffff" });
+        this.deadText = game.add.text(100, 100, "Game Over", { font: "30px Arial", fill: "#ffffff" });
         
         // Go through all the pipes, and stop their movement
         this.pipes.forEachAlive(function(p){
