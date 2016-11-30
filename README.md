@@ -1,4 +1,4 @@
-# flappy-wangzong
-A simple copy version of flappy bird using Phaser
+# flappy-bird-web
+A simple web version of flappy bird using [Phaser - HTML5 Game Framework](https://phaser.io/).
 
-You can play it here: <a href="http://zhanghedr.github.io/flappy-baobao/">here</a>
+You can play it [here](http://zhanghedr.github.io/flappy-bird-web/).
